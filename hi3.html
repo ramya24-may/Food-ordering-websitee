@@ -3,11 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Contact - Foodie's Delight</title>
-<link rel="stylesheet" href="style.css">
-
-
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <h2 style="text-align: center;">Contact Us 📞</h2>
 
 <div style="max-width: 500px; margin: auto; background-color: #fff3e0; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
@@ -16,8 +15,7 @@
     We'd love to hear from you! Fill out the form below and our team will get back to you shortly.
   </p>
 
-  <form>
-
+  <form onsubmit="submitMessage(event)">
     <label for="name">Name:</label><br>
     <input type="text" id="name" name="name" placeholder="Your Name" required style="width: 100%; padding: 10px; margin-bottom: 15px;"><br>
 
@@ -30,45 +28,26 @@
     <button type="submit" style="width: 100%; background-color: #ff5722; color: white; padding: 12px; font-size: 16px; border: none; border-radius: 8px; cursor: pointer;">
       📤 Send Message
     </button>
-
   </form>
+
+  <!-- Message display after submission -->
+  <p id="submission-message" style="text-align: center; color: green; margin-top: 20px; font-size: 18px;"></p>
+
 </div>
 
-  <h1>Contact Us</h1>
+<!-- JavaScript Part -->
+<script>
+  function submitMessage(event) {
+    event.preventDefault(); // stop form from refreshing the page
 
-  <nav>
-    <a href="index.html">Home</a> |
-    <a href="hi1.html">Menu</a> |
-    <a href="hi2.html">Order Now</a> |
-    <a href="hi3.html">Contact</a>
-  </nav>
+    document.getElementById('submission-message').innerText = "✅ Message sent successfully! Thank you for contacting us.";
 
-  <p>If you have any questions or feedback, feel free to reach out!</p>
-
-  <h2>Contact Form</h2>
-  <form>
-    <label for="name">Your Name:</label><br>
-    <input type="text" id="name" name="name" required><br><br>
-
-    <label for="email">Your Email:</label><br>
-    <input type="email" id="email" name="email" required><br><br>
-
-    <label for="message">Message:</label><br>
-    <textarea id="message" name="message" rows="5" cols="30"></textarea><br><br>
-
-    <button type="submit">Send Message</button>
-  </form>
-
-  <h2>Other Contact Info</h2>
-  <p>Email: support@foodiesdelight.com</p>
-  <p>Phone: +91 9876543210</p>
-<footer style="background-color: #333; color: white; text-align: center; padding: 15px; margin-top: 40px;">
-  <p>&copy; 2025 Foodie's Delight 🍴 | All rights reserved.</p>
-  <p>Follow us on 
-    <a href="#" style="color: #ff9800;">Instagram</a> | 
-    <a href="#" style="color: #ff9800;">Facebook</a>
-  </p>
-</footer>
+    // Optionally, clear the form fields
+    document.getElementById('name').value = "";
+    document.getElementById('email').value = "";
+    document.getElementById('message').value = "";
+  }
+</script>
 
 </body>
 </html>
